@@ -22,7 +22,7 @@
       "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/aws-cdk-tools",
+        "outputPath": "packages/aws-cdk-tools/dist",
         "tsConfig": "packages/aws-cdk-tools/tsconfig.lib.json",
         "packageJson": "packages/aws-cdk-tools/package.json",
         "main": "packages/aws-cdk-tools/src/index.ts",
