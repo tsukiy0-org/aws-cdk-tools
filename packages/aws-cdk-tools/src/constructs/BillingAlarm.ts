@@ -1,10 +1,10 @@
-import { Duration } from "aws-cdk-lib";
+import { Duration } from 'aws-cdk-lib';
 import {
   Alarm,
   ComparisonOperator,
   Metric,
-} from "aws-cdk-lib/lib/aws-cloudwatch";
-import { Construct } from "constructs";
+} from 'aws-cdk-lib/lib/aws-cloudwatch';
+import { Construct } from 'constructs';
 
 export class BillingAlarm extends Construct {
   public readonly alarm: Alarm;
@@ -14,17 +14,17 @@ export class BillingAlarm extends Construct {
     id: string,
     props: {
       amountUSD: number;
-    },
+    }
   ) {
     super(scope, id);
 
     const metric = new Metric({
-      metricName: "EstimatedCharges",
-      namespace: "AWS/Billing",
+      metricName: 'EstimatedCharges',
+      namespace: 'AWS/Billing',
       period: Duration.hours(6),
-      statistic: "Maximum",
+      statistic: 'Maximum',
       dimensionsMap: {
-        Currency: "USD",
+        Currency: 'USD',
       },
     });
 
@@ -32,7 +32,7 @@ export class BillingAlarm extends Construct {
       alarmName: `Billing (>= ${props.amountUSD}USD)`,
       threshold: props.amountUSD,
       evaluationPeriods: 1,
-      comparisonOperator: ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+      comparisonOperator: ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
     });
 
     this.alarm = alarm;
