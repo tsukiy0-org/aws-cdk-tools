@@ -1,0 +1,13 @@
+name: pipeline
+on:
+  push:
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          docker-compose -f tasks/ci/docker-compose.yml build build
+          docker-compose -f tasks/ci/docker-compose.yml run build
+          docker-compose -f tasks/ci/docker-compose.yml down
