@@ -1,0 +1,34 @@
+{
+  "root": "packages/aws-cdk-tools",
+  "sourceRoot": "packages/aws-cdk-tools/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/aws-cdk-tools/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/aws-cdk-tools"],
+      "options": {
+        "jestConfig": "packages/aws-cdk-tools/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/aws-cdk-tools",
+        "tsConfig": "packages/aws-cdk-tools/tsconfig.lib.json",
+        "packageJson": "packages/aws-cdk-tools/package.json",
+        "main": "packages/aws-cdk-tools/src/index.ts",
+        "assets": ["packages/aws-cdk-tools/*.md"]
+      }
+    }
+  },
+  "tags": []
+}
