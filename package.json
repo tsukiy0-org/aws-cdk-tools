@@ -6,7 +6,7 @@
     "lint": "nx run-many --target lint --all",
     "build": "nx run-many --target build --all",
     "test": "nx run-many --target test --all",
-    "test:integration": "nx run-many --target test:integration --all"
+    "integration": "nx run-many --target integration --all"
   },
   "private": true,
   "workspaces": [

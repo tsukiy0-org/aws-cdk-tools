@@ -2,4 +2,4 @@
 
 set -euxo pipefail
 
-yarn test:integration
+yarn integration

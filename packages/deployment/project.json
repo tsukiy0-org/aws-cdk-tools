@@ -11,7 +11,14 @@
         "tsConfig": "packages/deployment/tsconfig.lib.json",
         "packageJson": "packages/deployment/package.json",
         "main": "packages/deployment/src/index.ts",
-        "assets": ["packages/deployment/*.md"]
+        "assets": [
+          "packages/deployment/*.md",
+          {
+            "input": "packages/deployment/static",
+            "glob": "**/*",
+            "output": "static"
+          }
+        ]
       }
     },
     "lint": {
@@ -29,11 +36,11 @@
         "passWithNoTests": true
       }
     },
-    "test:integration": {
+    "integration": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/packages/deployment"],
       "options": {
-        "jestConfig": "packages/deployment/jest.integration.config.js",
+        "jestConfig": "packages/deployment/jest.config.integration.js",
         "passWithNoTests": true
       }
     }
