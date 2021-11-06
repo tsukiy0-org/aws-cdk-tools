@@ -9,7 +9,7 @@ import { Cors } from 'aws-cdk-lib/lib/aws-apigateway';
 import { IFunction } from 'aws-cdk-lib/lib/aws-lambda';
 import { Construct } from 'constructs';
 
-export class DefaultLambdaHttpApi extends HttpApi {
+export class DefaultFunctionHttpApi extends HttpApi {
   constructor(
     scope: Construct,
     id: string,

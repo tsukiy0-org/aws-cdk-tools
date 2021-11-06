@@ -1,7 +1,11 @@
-import { DefaultFunction, DefaultLambdaHttpApi } from '@tsukiy0/aws-cdk-tools';
+import {
+  DefaultFunction,
+  DefaultFunctionHttpApi,
+  HttpPingAlarm,
+} from '@tsukiy0/aws-cdk-tools';
 import { Construct } from 'constructs';
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
-import { StringParameter } from 'aws-cdk-lib/aws-ssm';
+import { StringListParameter, StringParameter } from 'aws-cdk-lib/aws-ssm';
 
 export class Api extends Construct {
   constructor(scope: Construct, id: string) {
@@ -23,14 +27,24 @@ exports.handler = async (event) => {
       handler: 'index.handler',
     });
 
-    const api = new DefaultLambdaHttpApi(this, 'Api', {
+    const api = new DefaultFunctionHttpApi(this, 'Api', {
       apiName: 'AwsCdkToolsApi',
       fn,
+    });
+
+    const pingAlarms = new HttpPingAlarm(this, 'PingAlarm', {
+      url: api.url,
+      threshold: 1,
     });
 
     new StringParameter(this, 'ApiUrl', {
       parameterName: '/cdk-tools/api/url',
       stringValue: api.url,
+    });
+
+    new StringParameter(this, 'PingAlarmName', {
+      parameterName: '/cdk-tools/api/ping-alarm-name',
+      stringValue: pingAlarms.alarms.map((_) => _.alarmName)[0],
     });
   }
 }
