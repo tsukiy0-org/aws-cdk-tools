@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tsukiy0/aws-cdk-tools": ["packages/aws-cdk-tools/src/index.ts"]
+      "@tsukiy0/aws-cdk-tools": ["packages/aws-cdk-tools/src/index.ts"],
+      "@tsukiy0/deployment": ["packages/deployment/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

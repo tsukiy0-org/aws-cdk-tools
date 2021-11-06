@@ -11,6 +11,8 @@
     "dist/src"
   ],
   "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "^2.0.0-alpha.4",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "^2.0.0-alpha.4",
     "aws-cdk-lib": "^2.0.0-rc.27",
     "constructs": "^10.0.9"
   }

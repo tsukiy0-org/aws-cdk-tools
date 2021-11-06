@@ -13,6 +13,24 @@ jobs:
           docker-compose -f tasks/ci/docker-compose.yml build build
           docker-compose -f tasks/ci/docker-compose.yml run build
           docker-compose -f tasks/ci/docker-compose.yml down
+      - name: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+        run: |
+          docker-compose -f tasks/ci/docker-compose.yml build deploy
+          docker-compose -f tasks/ci/docker-compose.yml run deploy
+          docker-compose -f tasks/ci/docker-compose.yml down
+      - name: integration
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+        run: |
+          docker-compose -f tasks/ci/docker-compose.yml build integration
+          docker-compose -f tasks/ci/docker-compose.yml run integration
+          docker-compose -f tasks/ci/docker-compose.yml down
       - name: publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

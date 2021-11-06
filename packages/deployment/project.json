@@ -1,0 +1,42 @@
+{
+  "root": "packages/deployment",
+  "sourceRoot": "packages/deployment/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/deployment/dist",
+        "tsConfig": "packages/deployment/tsconfig.lib.json",
+        "packageJson": "packages/deployment/package.json",
+        "main": "packages/deployment/src/index.ts",
+        "assets": ["packages/deployment/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/deployment/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/deployment"],
+      "options": {
+        "jestConfig": "packages/deployment/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "test:integration": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/deployment"],
+      "options": {
+        "jestConfig": "packages/deployment/jest.integration.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
