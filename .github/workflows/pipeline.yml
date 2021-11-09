@@ -1,6 +1,12 @@
 name: pipeline
 on:
   push:
+  workflow_dispatch:
+    inputs:
+      release:
+        description: release
+        required: true
+        default: "false"
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -40,7 +46,7 @@ jobs:
           docker-compose -f tasks/ci/docker-compose.yml run publish_canary
           docker-compose -f tasks/ci/docker-compose.yml down
       - name: publish_release
-        if: ${{ github.ref == 'refs/heads/release' }}
+        if: ${{ github.event.inputs.release == 'true' }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
