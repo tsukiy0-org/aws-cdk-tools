@@ -38,7 +38,7 @@ export class HttpPingAlarm extends Construct {
     const alarms = new FunctionAlarm(this, 'FnAlarm', {
       fn,
       thresholds: {
-        maxErrors: props.threshold,
+        maxErrorCount: props.threshold,
       },
     }).alarms;
 

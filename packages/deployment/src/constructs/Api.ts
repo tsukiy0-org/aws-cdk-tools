@@ -5,7 +5,7 @@ import {
 } from '@tsukiy0/aws-cdk-tools';
 import { Construct } from 'constructs';
 import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
-import { StringListParameter, StringParameter } from 'aws-cdk-lib/aws-ssm';
+import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 
 export class Api extends Construct {
   constructor(scope: Construct, id: string) {

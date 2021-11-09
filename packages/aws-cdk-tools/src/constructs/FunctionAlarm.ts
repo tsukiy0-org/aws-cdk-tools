@@ -11,48 +11,48 @@ export class FunctionAlarm extends Construct {
     props: {
       fn: IFunction;
       thresholds: {
-        maxErrors?: number;
-        maxThrottles?: number;
-        maxDuration?: number;
+        maxErrorCount?: number;
+        maxThrottleCount?: number;
+        maxDurationInSeconds?: number;
       };
     }
   ) {
     super(scope, id);
 
     const alarms = [
-      ...(props.thresholds.maxErrors
+      ...(props.thresholds.maxErrorCount
         ? [
             props.fn
               .metricErrors({
                 statistic: 'sum',
               })
-              .createAlarm(this, 'MaxErrors', {
+              .createAlarm(this, 'MaxErrorCount', {
                 evaluationPeriods: 1,
-                threshold: props.thresholds.maxErrors,
+                threshold: props.thresholds.maxErrorCount,
               }),
           ]
         : []),
-      ...(props.thresholds.maxThrottles
+      ...(props.thresholds.maxThrottleCount
         ? [
             props.fn
               .metricThrottles({
                 statistic: 'sum',
               })
-              .createAlarm(this, 'MaxThrottles', {
+              .createAlarm(this, 'MaxThrottleCount', {
                 evaluationPeriods: 1,
-                threshold: props.thresholds.maxThrottles,
+                threshold: props.thresholds.maxThrottleCount,
               }),
           ]
         : []),
-      ...(props.thresholds.maxDuration
+      ...(props.thresholds.maxDurationInSeconds
         ? [
             props.fn
               .metricDuration({
                 statistic: 'sum',
               })
-              .createAlarm(this, 'MaxDuration', {
+              .createAlarm(this, 'MaxDurationInSeconds', {
                 evaluationPeriods: 1,
-                threshold: props.thresholds.maxDuration,
+                threshold: props.thresholds.maxDurationInSeconds * 1000,
               }),
           ]
         : []),

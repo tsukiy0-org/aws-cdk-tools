@@ -17,6 +17,11 @@
             "input": "packages/deployment/static",
             "glob": "**/*",
             "output": "static"
+          },
+          {
+            "input": "packages/deployment/src/constructs/BatchJob/docker",
+            "glob": "Dockerfile",
+            "output": "src/constructs/BatchJob/docker"
           }
         ]
       }

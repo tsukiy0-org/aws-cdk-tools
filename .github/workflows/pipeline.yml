@@ -32,6 +32,7 @@ jobs:
           docker-compose -f tasks/ci/docker-compose.yml run integration
           docker-compose -f tasks/ci/docker-compose.yml down
       - name: publish
+        if: ${{ github.ref == 'refs/heads/master' }}
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |

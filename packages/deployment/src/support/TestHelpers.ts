@@ -19,4 +19,26 @@ export class TestHelpers {
 
     return value;
   };
+
+  public static retry = async <T>(
+    maxRetries: number,
+    fn: () => Promise<T>
+  ): Promise<T> => {
+    let tries = 0;
+
+    while (tries <= maxRetries) {
+      try {
+        return await fn();
+      } catch (e) {
+        if (tries === maxRetries) {
+          throw e;
+        } else {
+          await new Promise((resolve) => {
+            setTimeout(resolve, 5000);
+          });
+          tries++;
+        }
+      }
+    }
+  };
 }
