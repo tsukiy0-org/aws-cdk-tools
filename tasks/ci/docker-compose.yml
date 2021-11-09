@@ -8,16 +8,26 @@ services:
       - ../../:/app
     working_dir: /app
     command: bash ./tasks/ci/build
-  publish:
+  publish_canary:
     build:
       context: .
-      dockerfile: publish.Dockerfile
+      dockerfile: publish_canary.Dockerfile
     volumes:
       - ../../:/app
     working_dir: /app
     environment:
       NPM_TOKEN: ${NPM_TOKEN}
-    command: bash ./tasks/ci/publish
+    command: bash ./tasks/ci/publish_canary
+  publish_release:
+    build:
+      context: .
+      dockerfile: publish_release.Dockerfile
+    volumes:
+      - ../../:/app
+    working_dir: /app
+    environment:
+      NPM_TOKEN: ${NPM_TOKEN}
+    command: bash ./tasks/ci/publish_release
   deploy:
     build:
       context: .

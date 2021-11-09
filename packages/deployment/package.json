@@ -1,12 +1,12 @@
 {
   "name": "@tsukiy0/deployment",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "deploy": "cdk bootstrap && cdk deploy --require-approval never --verbose --all"
   },
   "dependencies": {
-    "@tsukiy0/aws-cdk-tools": "^0.1.0-alpha.0",
+    "@tsukiy0/aws-cdk-tools": "^0.1.0",
     "aws-cdk-lib": "^2.0.0-rc.27",
     "aws-sdk": "^2.1023.0"
   },

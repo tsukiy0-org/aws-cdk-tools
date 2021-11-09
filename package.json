@@ -6,7 +6,8 @@
     "lint": "nx run-many --target lint --all",
     "build": "nx run-many --target build --all",
     "test": "nx run-many --target test --all",
-    "integration": "nx run-many --target integration --all"
+    "integration": "nx run-many --target integration --all",
+    "version:release": "lerna version --force-publish --no-git-tag-version --conventional-commits --conventional-graduate -m \"chore: version\""
   },
   "private": true,
   "workspaces": [
