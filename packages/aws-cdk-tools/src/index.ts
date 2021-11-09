@@ -15,3 +15,5 @@ export * from './constructs/FargateBatchJob';
 export * from './constructs/FargateComputeEnvironment';
 export * from './constructs/DefaultTable';
 export * from './constructs/DefaultVpc';
+export * from './constructs/PublicPgDb';
+export * from './constructs/DefaultDatabaseInstance';
