@@ -1,21 +1,11 @@
 import { Construct } from 'constructs';
-import { IPrincipal } from 'aws-cdk-lib/lib/aws-iam';
-import { ILogGroup } from 'aws-cdk-lib/lib/aws-logs';
 import {
   ComputeEnvironment,
-  ComputeEnvironmentProps,
   ComputeResourceType,
-  IJobDefinition,
-  IJobQueue,
 } from '@aws-cdk/aws-batch-alpha';
 import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
 
 export class FargateComputeEnvironment extends ComputeEnvironment {
-  public readonly definition: IJobDefinition;
-  public readonly queue: IJobQueue;
-  public readonly logGroup: ILogGroup;
-  public readonly grantPrincipal: IPrincipal;
-
   public constructor(
     scope: Construct,
     id: string,
@@ -23,7 +13,7 @@ export class FargateComputeEnvironment extends ComputeEnvironment {
       vpc: IVpc;
       vpcSubnets: SubnetSelection;
       spot: boolean;
-      vcpus: ComputeEnvironmentProps['computeResources']['maxvCpus'];
+      vcpus: number;
     }
   ) {
     super(scope, id, {

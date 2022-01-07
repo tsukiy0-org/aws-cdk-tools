@@ -2,4 +2,6 @@
 
 set -euxo pipefail
 
-yarn integration
+pushd apps/deploy
+yarn test:integration
+popd

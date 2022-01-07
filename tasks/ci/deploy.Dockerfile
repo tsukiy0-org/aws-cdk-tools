@@ -1,1 +1,1 @@
-FROM tsukiy0/node-docker
+FROM tsukiy0/ci-node

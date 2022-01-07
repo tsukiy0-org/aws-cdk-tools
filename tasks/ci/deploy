@@ -2,6 +2,6 @@
 
 set -euo pipefail
 
-pushd packages/deployment
+pushd apps/deploy
 yarn deploy
 popd

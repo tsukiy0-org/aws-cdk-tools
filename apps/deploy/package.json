@@ -1,0 +1,37 @@
+{
+  "name": "deploy",
+  "private": true,
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint ./src/**/*.ts",
+    "prebuild": "rimraf dist",
+    "build": "tsc -p tsconfig.build.json",
+    "predeploy": "cdk bootstrap && cdk deploy --require-approval never AwsCdkToolsExternalStack",
+    "deploy": "cdk deploy --require-approval never --all",
+    "test:integration": "jest --config=jest.config.integration.js"
+  },
+  "dependencies": {
+    "@tsukiy0/aws-cdk-tools": "0.1.1-alpha.070f3cde7b3269ca11e4a3cde7502294ecebb835.20+070f3cd",
+    "aws-cdk-lib": "2.0.0-rc.27",
+    "constructs": "10.0.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@types/node": "16.9.4",
+    "@types/uuid": "^8.3.4",
+    "aws-cdk": "2.0.0-rc.27",
+    "aws-sdk": "^2.1052.0",
+    "config": "*",
+    "cross-fetch": "^3.1.4",
+    "eslint": "7.32.0",
+    "jest": "^27.4.7",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.1.2",
+    "tsconfig": "*",
+    "typescript": "^4.5.3",
+    "uuid": "^8.3.2"
+  }
+}

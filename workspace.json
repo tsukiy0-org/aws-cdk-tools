@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "aws-cdk-tools": "packages/aws-cdk-tools",
-    "deployment": "packages/deployment"
-  }
-}

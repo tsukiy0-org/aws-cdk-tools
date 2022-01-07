@@ -6,7 +6,7 @@
   },
   "include": [
     "**/*.ts"
-, "src/constructs/HttpPingAlarm/lambda/index.ts"  ],
+, "static/SqsJob/index.js", "static/BatchJob/index.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -1,11 +1,11 @@
 import * as https from 'https';
 
 exports.handler = async () => {
-  const url = process.env.URL;
+  const url = process.env.URL!;
   return request(url);
 };
 
-const request = (url) => {
+const request = (url: string) => {
   return new Promise((resolve, reject) => {
     const req = https.request(
       url,
