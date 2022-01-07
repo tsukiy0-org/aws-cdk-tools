@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "root"
+    },
+    {
+      "path": "./packages/aws-cdk-tools"
+    },
+    {
+      "path": "./apps/deploy"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "./packages/aws-cdk-tools": true,
+      "./apps/deploy": true
+    }
+  }
+}
