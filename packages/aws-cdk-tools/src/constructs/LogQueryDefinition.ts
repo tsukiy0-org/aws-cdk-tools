@@ -1,6 +1,6 @@
-import { Names } from 'aws-cdk-lib';
-import { CfnQueryDefinition, ILogGroup } from 'aws-cdk-lib/aws-logs';
-import { Construct } from 'constructs';
+import { Names } from "aws-cdk-lib";
+import { CfnQueryDefinition, ILogGroup } from "aws-cdk-lib/aws-logs";
+import { Construct } from "constructs";
 
 export class LogQueryDefinition extends Construct {
   constructor(
@@ -14,7 +14,7 @@ export class LogQueryDefinition extends Construct {
   ) {
     super(scope, id);
 
-    new CfnQueryDefinition(this, 'QueryDefinition', {
+    new CfnQueryDefinition(this, "QueryDefinition", {
       name: props.name ?? Names.uniqueId(this),
       logGroupNames: props.logGroups.map((_) => _.logGroupName),
       queryString: props.queryString,

@@ -1,13 +1,13 @@
-import { DynamoDB, SQS } from 'aws-sdk';
-import { TestHelpers } from '../support/TestHelpers';
-import * as uuid from 'uuid';
+import { DynamoDB, SQS } from "aws-sdk";
+import { TestHelpers } from "../support/TestHelpers";
+import * as uuid from "uuid";
 
-describe('SqsJob', () => {
-  it('handles messages', async () => {
+describe("SqsJob", () => {
+  it("handles messages", async () => {
     // Arrange
-    const queueUrl = await TestHelpers.getParam('/cdk-tools/sqs-job/queue-url');
+    const queueUrl = await TestHelpers.getParam("/cdk-tools/sqs-job/queue-url");
     const tableName = await TestHelpers.getParam(
-      '/cdk-tools/sqs-job/table-name'
+      "/cdk-tools/sqs-job/table-name"
     );
     const key = uuid.v4();
 
@@ -29,7 +29,7 @@ describe('SqsJob', () => {
         .promise();
 
       if (!res.Item) {
-        throw new Error('Item not found');
+        throw new Error("Item not found");
       }
 
       return res.Item;

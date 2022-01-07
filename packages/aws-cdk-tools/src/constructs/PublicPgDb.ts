@@ -14,8 +14,8 @@ import {
   Port,
   SecurityGroup,
   SubnetType,
-} from 'aws-cdk-lib/aws-ec2';
-import { Construct } from 'constructs';
+} from "aws-cdk-lib/aws-ec2";
+import { Construct } from "constructs";
 
 export class PublicPgDb extends Construct {
   public readonly host: string;
@@ -36,7 +36,7 @@ export class PublicPgDb extends Construct {
   ) {
     super(scope, id);
 
-    const securityGroup = new SecurityGroup(this, 'SecurityGroup', {
+    const securityGroup = new SecurityGroup(this, "SecurityGroup", {
       allowAllOutbound: true,
       vpc: props.vpc,
     });
@@ -45,7 +45,7 @@ export class PublicPgDb extends Construct {
     securityGroup.addIngressRule(Peer.anyIpv6(), Port.tcp(5432));
     securityGroup.addIngressRule(Peer.anyIpv4(), Port.allTraffic());
 
-    const instance = new Instance(this, 'Instance', {
+    const instance = new Instance(this, "Instance", {
       vpc: props.vpc,
       securityGroup,
       vpcSubnets: {
@@ -59,19 +59,19 @@ export class PublicPgDb extends Construct {
       }),
       init: CloudFormationInit.fromElements(
         InitFile.fromString(
-          '/etc/yum.repos.d/pgdg.repo',
+          "/etc/yum.repos.d/pgdg.repo",
           `[pgdg13]
 name=PostgreSQL 13 for RHEL/CentOS 7 - x86_64
 baseurl=https://download.postgresql.org/pub/repos/yum/13/redhat/rhel-7-x86_64
 enabled=1
 gpgcheck=0`
         ),
-        InitCommand.shellCommand('sudo yum update -y'),
+        InitCommand.shellCommand("sudo yum update -y"),
         InitCommand.shellCommand(
-          'sudo yum -y install postgresql13 postgresql13-server'
+          "sudo yum -y install postgresql13 postgresql13-server"
         ),
         InitCommand.shellCommand(
-          'sudo /usr/pgsql-13/bin/postgresql-13-setup initdb'
+          "sudo /usr/pgsql-13/bin/postgresql-13-setup initdb"
         ),
         InitCommand.shellCommand(`sudo systemctl start postgresql-13`),
         InitCommand.shellCommand(`sudo systemctl enable postgresql-13`),
@@ -89,10 +89,10 @@ gpgcheck=0`
     });
 
     this.host = instance.instancePublicDnsName;
-    this.port = '5432';
-    this.username = 'postgres';
+    this.port = "5432";
+    this.username = "postgres";
     this.password = props.password;
-    this.database = 'postgres';
+    this.database = "postgres";
     this.instance = instance;
   }
 }

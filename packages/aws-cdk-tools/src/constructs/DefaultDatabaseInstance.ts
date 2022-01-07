@@ -1,21 +1,17 @@
-import { RemovalPolicy } from 'aws-cdk-lib';
-import {
-  InstanceClass,
-  InstanceSize,
-  InstanceType,
-} from 'aws-cdk-lib/aws-ec2';
+import { RemovalPolicy } from "aws-cdk-lib";
+import { InstanceClass, InstanceSize, InstanceType } from "aws-cdk-lib/aws-ec2";
 import {
   DatabaseInstance,
   StorageType,
   DatabaseInstanceProps,
-} from 'aws-cdk-lib/aws-rds';
-import { Construct } from 'constructs';
+} from "aws-cdk-lib/aws-rds";
+import { Construct } from "constructs";
 
 export class DefaultDatabaseInstance extends DatabaseInstance {
   public constructor(
     scope: Construct,
     id: string,
-    props: DatabaseInstanceProps & Required<Pick<DatabaseInstanceProps, 'port'>>
+    props: DatabaseInstanceProps & Required<Pick<DatabaseInstanceProps, "port">>
   ) {
     super(scope, id, {
       instanceType: InstanceType.of(

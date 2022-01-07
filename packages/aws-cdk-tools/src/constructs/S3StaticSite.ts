@@ -54,7 +54,7 @@ export class S3StaticSite extends Construct {
                 {
                   header: "x-robots-tag",
                   value: "noindex, nofollow",
-                  override: true
+                  override: true,
                 },
               ]
             : []),

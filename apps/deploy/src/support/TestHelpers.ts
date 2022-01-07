@@ -1,4 +1,4 @@
-import { SSM } from 'aws-sdk';
+import { SSM } from "aws-sdk";
 
 export class TestHelpers {
   private static ssm = new SSM();
@@ -41,6 +41,6 @@ export class TestHelpers {
       }
     }
 
-    throw new Error('Should not get here');
+    throw new Error("Should not get here");
   };
 }

@@ -1,5 +1,5 @@
-import { Construct } from 'constructs';
-import { SubnetType, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
+import { Construct } from "constructs";
+import { SubnetType, Vpc, VpcProps } from "aws-cdk-lib/aws-ec2";
 
 export class DefaultVpc extends Vpc {
   public constructor(scope: Construct, id: string, props: VpcProps) {
@@ -8,7 +8,7 @@ export class DefaultVpc extends Vpc {
       natGateways: 0,
       subnetConfiguration: [
         {
-          name: 'public',
+          name: "public",
           subnetType: SubnetType.PUBLIC,
         },
       ],

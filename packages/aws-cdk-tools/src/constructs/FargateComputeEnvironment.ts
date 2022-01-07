@@ -1,9 +1,9 @@
-import { Construct } from 'constructs';
+import { Construct } from "constructs";
 import {
   ComputeEnvironment,
   ComputeResourceType,
-} from '@aws-cdk/aws-batch-alpha';
-import { IVpc, SubnetSelection } from 'aws-cdk-lib/aws-ec2';
+} from "@aws-cdk/aws-batch-alpha";
+import { IVpc, SubnetSelection } from "aws-cdk-lib/aws-ec2";
 
 export class FargateComputeEnvironment extends ComputeEnvironment {
   public constructor(

@@ -1,9 +1,9 @@
-import { Duration } from 'aws-cdk-lib';
-import { IFunction } from 'aws-cdk-lib/aws-lambda';
-import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
-import { IQueue } from 'aws-cdk-lib/aws-sqs';
-import { Construct } from 'constructs';
-import { RetryQueue } from './RetryQueue';
+import { Duration } from "aws-cdk-lib";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
+import { SqsEventSource } from "aws-cdk-lib/aws-lambda-event-sources";
+import { IQueue } from "aws-cdk-lib/aws-sqs";
+import { Construct } from "constructs";
+import { RetryQueue } from "./RetryQueue";
 
 export class QueueFunction extends Construct {
   public readonly queue: IQueue;
@@ -20,7 +20,7 @@ export class QueueFunction extends Construct {
   ) {
     super(scope, id);
 
-    const retryQueue = new RetryQueue(this, 'Queue', {
+    const retryQueue = new RetryQueue(this, "Queue", {
       queueProps: {
         // https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html
         visibilityTimeout: Duration.millis(

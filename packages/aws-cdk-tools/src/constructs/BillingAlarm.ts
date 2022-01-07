@@ -1,10 +1,6 @@
-import { Duration } from 'aws-cdk-lib';
-import {
-  Alarm,
-  ComparisonOperator,
-  Metric,
-} from 'aws-cdk-lib/aws-cloudwatch';
-import { Construct } from 'constructs';
+import { Duration } from "aws-cdk-lib";
+import { Alarm, ComparisonOperator, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 
 export class BillingAlarm extends Construct {
   public readonly alarm: Alarm;
@@ -19,12 +15,12 @@ export class BillingAlarm extends Construct {
     super(scope, id);
 
     const metric = new Metric({
-      metricName: 'EstimatedCharges',
-      namespace: 'AWS/Billing',
+      metricName: "EstimatedCharges",
+      namespace: "AWS/Billing",
       period: Duration.hours(6),
-      statistic: 'Maximum',
+      statistic: "Maximum",
       dimensionsMap: {
-        Currency: 'USD',
+        Currency: "USD",
       },
     });
 

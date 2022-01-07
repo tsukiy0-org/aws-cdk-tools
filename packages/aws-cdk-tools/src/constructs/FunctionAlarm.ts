@@ -1,6 +1,6 @@
-import { IAlarm } from 'aws-cdk-lib/aws-cloudwatch';
-import { Construct } from 'constructs';
-import { IFunction } from 'aws-cdk-lib/aws-lambda';
+import { IAlarm } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
+import { IFunction } from "aws-cdk-lib/aws-lambda";
 
 export class FunctionAlarm extends Construct {
   public readonly alarms: IAlarm[];
@@ -24,9 +24,9 @@ export class FunctionAlarm extends Construct {
         ? [
             props.fn
               .metricErrors({
-                statistic: 'sum',
+                statistic: "sum",
               })
-              .createAlarm(this, 'MaxErrorCount', {
+              .createAlarm(this, "MaxErrorCount", {
                 evaluationPeriods: 1,
                 threshold: props.thresholds.maxErrorCount,
               }),
@@ -36,9 +36,9 @@ export class FunctionAlarm extends Construct {
         ? [
             props.fn
               .metricThrottles({
-                statistic: 'sum',
+                statistic: "sum",
               })
-              .createAlarm(this, 'MaxThrottleCount', {
+              .createAlarm(this, "MaxThrottleCount", {
                 evaluationPeriods: 1,
                 threshold: props.thresholds.maxThrottleCount,
               }),
@@ -48,9 +48,9 @@ export class FunctionAlarm extends Construct {
         ? [
             props.fn
               .metricDuration({
-                statistic: 'sum',
+                statistic: "sum",
               })
-              .createAlarm(this, 'MaxDurationInSeconds', {
+              .createAlarm(this, "MaxDurationInSeconds", {
                 evaluationPeriods: 1,
                 threshold: props.thresholds.maxDurationInSeconds * 1000,
               }),

@@ -1,4 +1,4 @@
-import { Construct } from 'constructs';
+import { Construct } from "constructs";
 import {
   Grant,
   IGrantable,
@@ -6,9 +6,9 @@ import {
   ManagedPolicy,
   Role,
   ServicePrincipal,
-} from 'aws-cdk-lib/aws-iam';
-import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
-import { RemovalPolicy } from 'aws-cdk-lib';
+} from "aws-cdk-lib/aws-iam";
+import { ILogGroup, LogGroup, RetentionDays } from "aws-cdk-lib/aws-logs";
+import { RemovalPolicy } from "aws-cdk-lib";
 import {
   IComputeEnvironment,
   IJobDefinition,
@@ -18,8 +18,8 @@ import {
   JobQueue,
   LogDriver,
   PlatformCapabilities,
-} from '@aws-cdk/aws-batch-alpha';
-import { LogQueryDefinition } from './LogQueryDefinition';
+} from "@aws-cdk/aws-batch-alpha";
+import { LogQueryDefinition } from "./LogQueryDefinition";
 
 export class FargateBatchJob extends Construct implements IGrantable {
   public readonly definition: IJobDefinition;
@@ -34,13 +34,13 @@ export class FargateBatchJob extends Construct implements IGrantable {
       computeEnvironment: IComputeEnvironment;
       container: Omit<
         JobDefinitionContainer,
-        'jobRole' | 'executionRole' | 'logConfiguration'
+        "jobRole" | "executionRole" | "logConfiguration"
       >;
     }
   ) {
     super(scope, id);
 
-    const queue = new JobQueue(this, 'JobQueue', {
+    const queue = new JobQueue(this, "JobQueue", {
       computeEnvironments: [
         {
           computeEnvironment: props.computeEnvironment,
@@ -49,32 +49,32 @@ export class FargateBatchJob extends Construct implements IGrantable {
       ],
     });
 
-    const role = new Role(this, 'JobRole', {
-      assumedBy: new ServicePrincipal('ecs-tasks.amazonaws.com'),
+    const role = new Role(this, "JobRole", {
+      assumedBy: new ServicePrincipal("ecs-tasks.amazonaws.com"),
     });
-    const executionRole = new Role(this, 'JobExecutionRole', {
-      assumedBy: new ServicePrincipal('ecs-tasks.amazonaws.com'),
+    const executionRole = new Role(this, "JobExecutionRole", {
+      assumedBy: new ServicePrincipal("ecs-tasks.amazonaws.com"),
       managedPolicies: [
         ManagedPolicy.fromManagedPolicyArn(
           this,
-          'AmazonECSTaskExecutionRolePolicy',
-          'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'
+          "AmazonECSTaskExecutionRolePolicy",
+          "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
         ),
       ],
     });
 
-    const logGroup = new LogGroup(this, 'JobLogGroup', {
+    const logGroup = new LogGroup(this, "JobLogGroup", {
       retention: RetentionDays.SIX_MONTHS,
     });
     logGroup.applyRemovalPolicy(RemovalPolicy.DESTROY);
-    new LogQueryDefinition(this, 'LogQuery', {
+    new LogQueryDefinition(this, "LogQuery", {
       logGroups: [logGroup],
       queryString: `fields @timestamp, @message, @logStream
 | sort @timestamp desc
 | limit 100`,
     });
 
-    const definition = new JobDefinition(this, 'JobDefinition', {
+    const definition = new JobDefinition(this, "JobDefinition", {
       platformCapabilities: [PlatformCapabilities.FARGATE],
       container: {
         vcpus: 0.25,
@@ -85,7 +85,7 @@ export class FargateBatchJob extends Construct implements IGrantable {
         logConfiguration: {
           logDriver: LogDriver.AWSLOGS,
           options: {
-            'awslogs-group': logGroup.logGroupName,
+            "awslogs-group": logGroup.logGroupName,
           },
         },
         ...props.container,
@@ -101,7 +101,7 @@ export class FargateBatchJob extends Construct implements IGrantable {
   public readonly grantSubmit = (grantee: IGrantable) => {
     Grant.addToPrincipal({
       grantee,
-      actions: ['batch:SubmitJob'],
+      actions: ["batch:SubmitJob"],
       resourceArns: [this.queue.jobQueueArn, this.definition.jobDefinitionArn],
     });
   };

@@ -1,6 +1,6 @@
-import { Alarm } from 'aws-cdk-lib/aws-cloudwatch';
-import { Construct } from 'constructs';
-import { RetryQueue } from './RetryQueue';
+import { Alarm } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
+import { RetryQueue } from "./RetryQueue";
 
 export class RetryQueueAlarm extends Construct {
   public readonly alarms: Alarm[];
@@ -23,7 +23,7 @@ export class RetryQueueAlarm extends Construct {
         ? [
             props.queue.deadLetterQueue
               .metricApproximateNumberOfMessagesVisible()
-              .createAlarm(this, 'MaxDeadLetterCount', {
+              .createAlarm(this, "MaxDeadLetterCount", {
                 evaluationPeriods: 1,
                 threshold: props.thresholds.maxDeadLetterCount,
               }),
@@ -33,7 +33,7 @@ export class RetryQueueAlarm extends Construct {
         ? [
             props.queue.queue
               .metricApproximateAgeOfOldestMessage()
-              .createAlarm(this, 'MaxMessageAgeInSeconds', {
+              .createAlarm(this, "MaxMessageAgeInSeconds", {
                 evaluationPeriods: 1,
                 threshold: props.thresholds.maxMessageAgeInSeconds,
               }),

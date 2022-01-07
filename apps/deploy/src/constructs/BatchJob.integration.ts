@@ -1,18 +1,18 @@
-import { Batch, DynamoDB } from 'aws-sdk';
-import { TestHelpers } from '../support/TestHelpers';
-import * as uuid from 'uuid';
+import { Batch, DynamoDB } from "aws-sdk";
+import { TestHelpers } from "../support/TestHelpers";
+import * as uuid from "uuid";
 
-describe('BatchJob', () => {
-  it('handles messages', async () => {
+describe("BatchJob", () => {
+  it("handles messages", async () => {
     // Arrange
     const jobDefinitionArn = await TestHelpers.getParam(
-      '/cdk-tools/batch-job/job-definition-arn'
+      "/cdk-tools/batch-job/job-definition-arn"
     );
     const jobQueueArn = await TestHelpers.getParam(
-      '/cdk-tools/batch-job/job-queue-arn'
+      "/cdk-tools/batch-job/job-queue-arn"
     );
     const tableName = await TestHelpers.getParam(
-      '/cdk-tools/batch-job/table-name'
+      "/cdk-tools/batch-job/table-name"
     );
     const key = uuid.v4();
 
@@ -25,7 +25,7 @@ describe('BatchJob', () => {
         containerOverrides: {
           environment: [
             {
-              name: 'MESSAGE',
+              name: "MESSAGE",
               value: key,
             },
           ],
@@ -43,7 +43,7 @@ describe('BatchJob', () => {
         .promise();
 
       if (!res.Item) {
-        throw new Error('Item not found');
+        throw new Error("Item not found");
       }
 
       return res.Item;
