@@ -1,4 +1,4 @@
-import { IQueue, QueueProps } from 'aws-cdk-lib/lib/aws-sqs';
+import { IQueue, QueueProps } from 'aws-cdk-lib/aws-sqs';
 import { Construct } from 'constructs';
 import { DefaultQueue } from './DefaultQueue';
 

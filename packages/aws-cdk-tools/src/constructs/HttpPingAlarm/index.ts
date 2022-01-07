@@ -1,9 +1,9 @@
-import { IAlarm } from 'aws-cdk-lib/lib/aws-cloudwatch';
-import { Code, Runtime } from 'aws-cdk-lib/lib/aws-lambda';
+import { IAlarm } from 'aws-cdk-lib/aws-cloudwatch';
+import { Code, Runtime } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 import { DefaultFunction } from '../DefaultFunction';
 import * as path from 'path';
-import { Schedule } from 'aws-cdk-lib/lib/aws-events';
+import { Schedule } from 'aws-cdk-lib/aws-events';
 import { Duration } from 'aws-cdk-lib';
 import { CronFunction } from '../CronFunction';
 import { FunctionAlarm } from '../FunctionAlarm';

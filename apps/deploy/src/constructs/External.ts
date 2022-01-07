@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { ITable, Table } from 'aws-cdk-lib/lib/aws-dynamodb';
+import { ITable, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { DefaultVpc } from '@tsukiy0/aws-cdk-tools';
 import { IVpc } from 'aws-cdk-lib/aws-ec2';
 

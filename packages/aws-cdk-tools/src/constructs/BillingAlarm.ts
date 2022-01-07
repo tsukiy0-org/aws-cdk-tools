@@ -3,7 +3,7 @@ import {
   Alarm,
   ComparisonOperator,
   Metric,
-} from 'aws-cdk-lib/lib/aws-cloudwatch';
+} from 'aws-cdk-lib/aws-cloudwatch';
 import { Construct } from 'constructs';
 
 export class BillingAlarm extends Construct {

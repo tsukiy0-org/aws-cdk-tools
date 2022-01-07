@@ -6,8 +6,8 @@ import {
   ManagedPolicy,
   Role,
   ServicePrincipal,
-} from 'aws-cdk-lib/lib/aws-iam';
-import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/lib/aws-logs';
+} from 'aws-cdk-lib/aws-iam';
+import { ILogGroup, LogGroup, RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { RemovalPolicy } from 'aws-cdk-lib';
 import {
   IComputeEnvironment,

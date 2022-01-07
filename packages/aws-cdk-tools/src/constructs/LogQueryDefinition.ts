@@ -1,5 +1,5 @@
 import { Names } from 'aws-cdk-lib';
-import { CfnQueryDefinition, ILogGroup } from 'aws-cdk-lib/lib/aws-logs';
+import { CfnQueryDefinition, ILogGroup } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 
 export class LogQueryDefinition extends Construct {

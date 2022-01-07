@@ -14,15 +14,15 @@
     "test:integration": "jest --config=jest.config.integration.js"
   },
   "dependencies": {
-    "@tsukiy0/aws-cdk-tools": "0.1.1-alpha.070f3cde7b3269ca11e4a3cde7502294ecebb835.20+070f3cd",
-    "aws-cdk-lib": "2.0.0-rc.27",
-    "constructs": "10.0.9"
+    "@tsukiy0/aws-cdk-tools": "*",
+    "aws-cdk-lib": "2.4.0",
+    "constructs": "10.0.27"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@types/node": "16.9.4",
     "@types/uuid": "^8.3.4",
-    "aws-cdk": "2.0.0-rc.27",
+    "aws-cdk": "2.4.0",
     "aws-sdk": "^2.1052.0",
     "config": "*",
     "cross-fetch": "^3.1.4",

@@ -1,6 +1,6 @@
-import { IAlarm } from 'aws-cdk-lib/lib/aws-cloudwatch';
+import { IAlarm } from 'aws-cdk-lib/aws-cloudwatch';
 import { Construct } from 'constructs';
-import { IFunction } from 'aws-cdk-lib/lib/aws-lambda';
+import { IFunction } from 'aws-cdk-lib/aws-lambda';
 
 export class FunctionAlarm extends Construct {
   public readonly alarms: IAlarm[];

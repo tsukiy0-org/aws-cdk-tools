@@ -8,7 +8,7 @@ import { Construct } from 'constructs';
 import { External } from './External';
 import * as path from 'path';
 import { StringParameter } from 'aws-cdk-lib/aws-ssm';
-import { DockerImageAsset } from 'aws-cdk-lib/lib/aws-ecr-assets';
+import { DockerImageAsset } from 'aws-cdk-lib/aws-ecr-assets';
 
 export class BatchJob extends Construct {
   constructor(
