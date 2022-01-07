@@ -3,9 +3,11 @@ import {
   IDomainName,
   HttpApi,
   HttpApiProps,
+  DomainName,
 } from '@aws-cdk/aws-apigatewayv2-alpha';
 import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
 import { Cors } from 'aws-cdk-lib/aws-apigateway';
+import { ICertificate } from 'aws-cdk-lib/aws-certificatemanager';
 import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
@@ -15,7 +17,10 @@ export class DefaultFunctionHttpApi extends HttpApi {
     id: string,
     props: {
       fn: IFunction;
-      domainName?: IDomainName;
+      domain?: {
+        domainName: string;
+        certificate: ICertificate;
+      }
     } & Pick<HttpApiProps, 'apiName'>
   ) {
     super(scope, id, {
@@ -27,9 +32,12 @@ export class DefaultFunctionHttpApi extends HttpApi {
         allowHeaders: Cors.DEFAULT_HEADERS,
       },
       createDefaultStage: true,
-      defaultDomainMapping: props.domainName
+      defaultDomainMapping: props.domain
         ? {
-            domainName: props.domainName,
+            domainName: new DomainName(scope, "DomainName", {
+              domainName: props.domain.domainName,
+              certificate: props.domain.certificate,
+            }),
           }
         : undefined,
     });
