@@ -2,8 +2,8 @@ import { Duration } from 'aws-cdk-lib';
 import {
   Function as LambdaFunction,
   FunctionProps,
-} from 'aws-cdk-lib/lib/aws-lambda';
-import { RetentionDays } from 'aws-cdk-lib/lib/aws-logs';
+} from 'aws-cdk-lib/aws-lambda';
+import { RetentionDays } from 'aws-cdk-lib/aws-logs';
 import { Construct } from 'constructs';
 import { LogQueryDefinition } from '..';
 

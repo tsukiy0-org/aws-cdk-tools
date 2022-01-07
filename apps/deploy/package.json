@@ -14,7 +14,7 @@
     "test:integration": "jest --config=jest.config.integration.js"
   },
   "dependencies": {
-    "@tsukiy0/aws-cdk-tools": "0.1.1-alpha.070f3cde7b3269ca11e4a3cde7502294ecebb835.20+070f3cd",
+    "@tsukiy0/aws-cdk-tools": "*",
     "aws-cdk-lib": "2.4.0",
     "constructs": "10.0.27"
   },

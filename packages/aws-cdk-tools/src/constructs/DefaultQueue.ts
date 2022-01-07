@@ -1,5 +1,5 @@
 import { Duration } from 'aws-cdk-lib';
-import { Queue, QueueProps } from 'aws-cdk-lib/lib/aws-sqs';
+import { Queue, QueueProps } from 'aws-cdk-lib/aws-sqs';
 import { Construct } from 'constructs';
 
 export class DefaultQueue extends Queue {

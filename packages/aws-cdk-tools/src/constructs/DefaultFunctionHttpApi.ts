@@ -4,9 +4,9 @@ import {
   HttpApi,
   HttpApiProps,
 } from '@aws-cdk/aws-apigatewayv2-alpha';
-import { LambdaProxyIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
-import { Cors } from 'aws-cdk-lib/lib/aws-apigateway';
-import { IFunction } from 'aws-cdk-lib/lib/aws-lambda';
+import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import { Cors } from 'aws-cdk-lib/aws-apigateway';
+import { IFunction } from 'aws-cdk-lib/aws-lambda';
 import { Construct } from 'constructs';
 
 export class DefaultFunctionHttpApi extends HttpApi {
@@ -20,9 +20,7 @@ export class DefaultFunctionHttpApi extends HttpApi {
   ) {
     super(scope, id, {
       apiName: props.apiName,
-      defaultIntegration: new LambdaProxyIntegration({
-        handler: props.fn,
-      }),
+      defaultIntegration: new HttpLambdaIntegration("DefaultIntegration", props.fn),
       corsPreflight: {
         allowOrigins: Cors.ALL_ORIGINS,
         allowMethods: [CorsHttpMethod.ANY],

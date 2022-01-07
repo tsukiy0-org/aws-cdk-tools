@@ -14,7 +14,7 @@ import {
   Port,
   SecurityGroup,
   SubnetType,
-} from 'aws-cdk-lib/lib/aws-ec2';
+} from 'aws-cdk-lib/aws-ec2';
 import { Construct } from 'constructs';
 
 export class PublicPgDb extends Construct {
@@ -79,10 +79,10 @@ gpgcheck=0`
           `sudo -u postgres psql -c "ALTER USER postgres PASSWORD '${props.password}';"`
         ),
         InitCommand.shellCommand(
-          `sudo echo "listen_addresses = '*'" >> /var/lib/pgsql/13/data/postgresql.conf`
+          `sudo echo "listen_addresses = '*'" >> /var/pgsql/13/data/postgresql.conf`
         ),
         InitCommand.shellCommand(
-          `sudo echo "host all all 0.0.0.0/0 md5" >> /var/lib/pgsql/13/data/pg_hba.conf`
+          `sudo echo "host all all 0.0.0.0/0 md5" >> /var/pgsql/13/data/pg_hba.conf`
         ),
         InitCommand.shellCommand(`sudo systemctl restart postgresql-13`)
       ),

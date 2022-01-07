@@ -6,9 +6,9 @@ import {
   ICachePolicy,
   IDistribution,
   OriginProtocolPolicy,
-} from 'aws-cdk-lib/lib/aws-cloudfront';
-import { HttpOrigin } from 'aws-cdk-lib/lib/aws-cloudfront-origins';
-import { BucketDeployment, ISource } from 'aws-cdk-lib/lib/aws-s3-deployment';
+} from 'aws-cdk-lib/aws-cloudfront';
+import { HttpOrigin } from 'aws-cdk-lib/aws-cloudfront-origins';
+import { BucketDeployment, ISource } from 'aws-cdk-lib/aws-s3-deployment';
 import { Construct } from 'constructs';
 import { DefaultBucket } from './DefaultBucket';
 

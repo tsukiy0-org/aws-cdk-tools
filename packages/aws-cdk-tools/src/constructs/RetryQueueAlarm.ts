@@ -1,4 +1,4 @@
-import { Alarm } from 'aws-cdk-lib/lib/aws-cloudwatch';
+import { Alarm } from 'aws-cdk-lib/aws-cloudwatch';
 import { Construct } from 'constructs';
 import { RetryQueue } from './RetryQueue';
 

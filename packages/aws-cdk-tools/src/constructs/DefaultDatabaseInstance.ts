@@ -3,12 +3,12 @@ import {
   InstanceClass,
   InstanceSize,
   InstanceType,
-} from 'aws-cdk-lib/lib/aws-ec2';
+} from 'aws-cdk-lib/aws-ec2';
 import {
   DatabaseInstance,
   StorageType,
   DatabaseInstanceProps,
-} from 'aws-cdk-lib/lib/aws-rds';
+} from 'aws-cdk-lib/aws-rds';
 import { Construct } from 'constructs';
 
 export class DefaultDatabaseInstance extends DatabaseInstance {
