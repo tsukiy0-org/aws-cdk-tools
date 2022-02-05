@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint ./src/**/*.ts",
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc --rootDir src --outDir dist",
     "predeploy": "cdk bootstrap && cdk deploy --require-approval never AwsCdkToolsExternalStack",
     "deploy": "cdk deploy --require-approval never --all",
     "test:integration": "jest --config=jest.config.integration.js"

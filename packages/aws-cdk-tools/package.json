@@ -28,7 +28,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc --rootDir src --outDir dist",
     "lint": "eslint ./src/**/*.ts"
   }
 }
