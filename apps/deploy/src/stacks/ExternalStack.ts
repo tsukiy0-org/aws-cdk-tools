@@ -1,4 +1,4 @@
-import { DefaultTable, DefualtUserPool } from "@tsukiy0/aws-cdk-tools";
+import { DefaultTable, DefaultUserPool } from "@tsukiy0/aws-cdk-tools";
 import { Stack, StackProps } from "aws-cdk-lib";
 import { AttributeType } from "aws-cdk-lib/aws-dynamodb";
 import { Construct } from "constructs";
@@ -21,7 +21,7 @@ export class ExternalStack extends Stack {
       },
     });
 
-    new DefualtUserPool(this, "UserPool", {
+    new DefaultUserPool(this, "UserPool", {
       domainPrefix: "tsukiy0-cdk-tools",
       callbackUrls: ["https://localhost:3000"],
       redirectUrl: "https://localhost:3000",

@@ -2,7 +2,7 @@ import { Aws } from "aws-cdk-lib";
 import { UserPool } from "aws-cdk-lib/aws-cognito";
 import { Construct } from "constructs";
 
-export class DefualtUserPool extends UserPool {
+export class DefaultUserPool extends UserPool {
   public readonly config: {
     userPool: {
       id: string;
