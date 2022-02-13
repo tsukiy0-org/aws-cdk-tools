@@ -4,6 +4,7 @@ import {
   HttpApi,
   HttpApiProps,
   DomainName,
+  PayloadFormatVersion,
 } from "@aws-cdk/aws-apigatewayv2-alpha";
 import { HttpLambdaIntegration } from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
 import { Cors } from "aws-cdk-lib/aws-apigateway";
@@ -27,7 +28,10 @@ export class DefaultFunctionHttpApi extends HttpApi {
       apiName: props.apiName,
       defaultIntegration: new HttpLambdaIntegration(
         "DefaultIntegration",
-        props.fn
+        props.fn,
+        {
+          payloadFormatVersion: PayloadFormatVersion.VERSION_1_0,
+        }
       ),
       corsPreflight: {
         allowOrigins: Cors.ALL_ORIGINS,
