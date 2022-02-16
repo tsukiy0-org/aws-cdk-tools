@@ -1,6 +1,5 @@
 import {
   CorsHttpMethod,
-  IDomainName,
   HttpApi,
   HttpApiProps,
   DomainName,
