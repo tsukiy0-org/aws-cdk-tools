@@ -15,23 +15,23 @@
   },
   "dependencies": {
     "@tsukiy0/aws-cdk-tools": "*",
-    "aws-cdk-lib": "2.4.0",
-    "constructs": "10.0.27"
+    "aws-cdk-lib": "2.20.0",
+    "constructs": "10.0.114"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "@types/node": "16.9.4",
+    "@types/jest": "^27.4.1",
+    "@types/node": "17.0.24",
     "@types/uuid": "^8.3.4",
-    "aws-cdk": "2.4.0",
-    "aws-sdk": "^2.1052.0",
+    "aws-cdk": "2.20.0",
+    "aws-sdk": "^2.1114.0",
     "config": "*",
-    "cross-fetch": "^3.1.4",
-    "eslint": "7.32.0",
-    "jest": "^27.4.7",
+    "cross-fetch": "^3.1.5",
+    "eslint": "8.13.0",
+    "jest": "^27.5.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "^27.1.2",
+    "ts-jest": "^27.1.4",
     "tsconfig": "*",
-    "typescript": "^4.5.3",
+    "typescript": "^4.6.3",
     "uuid": "^8.3.2"
   }
 }
