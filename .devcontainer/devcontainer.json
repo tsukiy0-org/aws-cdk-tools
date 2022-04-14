@@ -1,18 +1,13 @@
 {
-  "name": "Node.js",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "settings": {
-    "terminal.integrated.shell.*": "zsh"
-  },
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "github.copilot"
-  ],
-  "remoteUser": "node",
-  "hostRequirements": {
-    "cpus": 2,
-    "memory": "4gb"
-  }
+    "name": "main",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "main",
+    "workspaceFolder": "/workspace",
+    "settings": {
+        "terminal.integrated.shell.*": "zsh"
+    },
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
+    ]
 }

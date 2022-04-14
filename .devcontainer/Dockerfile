@@ -15,4 +15,5 @@ RUN mkdir -p ${AWSCLI_DIR} \
     && rm -rf ${AWSCLI_DIR}
 
 # shell
-RUN echo "bindkey -v" >> /home/node/.zshrc
+RUN echo "bindkey -v" >> /root/.zshrc
+RUN echo "set-option -g default-shell $(which zsh)" >> /root/.tmux.conf
