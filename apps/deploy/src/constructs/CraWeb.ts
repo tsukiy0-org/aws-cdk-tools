@@ -1,4 +1,4 @@
-import { S3StaticSite } from "@tsukiy0/aws-cdk-tools";
+import { BucketConfig, S3StaticSite } from "@tsukiy0/aws-cdk-tools";
 import { Construct } from "constructs";
 import { Source } from "aws-cdk-lib/aws-s3-deployment";
 import { CachePolicy } from "aws-cdk-lib/aws-cloudfront";
@@ -17,6 +17,13 @@ export class CraWeb extends Construct {
           cachePolicy: CachePolicy.CACHING_OPTIMIZED,
         },
       ],
+    });
+
+    new BucketConfig(this, "BucketConfig", {
+      bucket: site.bucket,
+      config: {
+        something: "cool",
+      },
     });
 
     new StringParameter(this, "Url", {
