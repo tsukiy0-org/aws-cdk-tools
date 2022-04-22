@@ -18,3 +18,4 @@ export * from "./constructs/DefaultVpc";
 export * from "./constructs/PublicPgDb";
 export * from "./constructs/DefaultDatabaseInstance";
 export * from "./constructs/DefaultUserPool";
+export * from "./constructs/BucketConfig";
