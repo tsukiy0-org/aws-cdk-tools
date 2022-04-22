@@ -1,6 +1,7 @@
 import { S3 } from "aws-sdk";
+import { CdkCustomResourceHandler } from "aws-lambda";
 
-exports.handler = async (event) => {
+export const handler: CdkCustomResourceHandler = async (event) => {
   console.log(event);
   const work = async () => {
     const s3 = new S3();
@@ -19,8 +20,8 @@ exports.handler = async (event) => {
     case "Create":
     case "Update":
       await work();
-      return;
     case "Delete":
     default:
+      return {};
   }
 };
