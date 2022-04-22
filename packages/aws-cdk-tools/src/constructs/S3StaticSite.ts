@@ -9,12 +9,14 @@ import {
   ResponseHeadersPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
 import { HttpOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { IBucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, ISource } from "aws-cdk-lib/aws-s3-deployment";
 import { Construct } from "constructs";
 import { DefaultBucket } from "./DefaultBucket";
 
 export class S3StaticSite extends Construct {
   private readonly cdn: IDistribution;
+  public readonly bucket: IBucket;
 
   public constructor(
     scope: Construct,
@@ -85,6 +87,7 @@ export class S3StaticSite extends Construct {
     });
 
     this.cdn = cdn;
+    this.bucket = bucket;
   }
 
   public getUrl = () => {
