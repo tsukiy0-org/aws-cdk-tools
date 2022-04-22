@@ -1,4 +1,4 @@
-import * as https from 'https';
+import * as https from "https";
 
 exports.handler = async () => {
   const url = process.env.URL!;
@@ -10,20 +10,20 @@ const request = (url: string) => {
     const req = https.request(
       url,
       {
-        method: 'GET',
+        method: "GET",
       },
       (res) => {
         if (res.statusCode !== 200) {
           return reject(new Error());
         }
 
-        res.on('end', function () {
+        res.on("end", function () {
           resolve(undefined);
         });
       }
     );
 
-    req.on('error', (e) => {
+    req.on("error", (e) => {
       reject(e);
     });
 
