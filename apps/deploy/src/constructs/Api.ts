@@ -4,7 +4,12 @@ import {
   HttpPingAlarm,
 } from "@tsukiy0/aws-cdk-tools";
 import { Construct } from "constructs";
-import { Code, Runtime } from "aws-cdk-lib/aws-lambda";
+import {
+  Code,
+  FunctionUrl,
+  FunctionUrlAuthType,
+  Runtime,
+} from "aws-cdk-lib/aws-lambda";
 import { StringParameter } from "aws-cdk-lib/aws-ssm";
 
 export class Api extends Construct {
@@ -27,6 +32,11 @@ exports.handler = async (event) => {
       handler: "index.handler",
     });
 
+    const fnUrl = new FunctionUrl(this, "FnUrl", {
+      function: fn,
+      authType: FunctionUrlAuthType.NONE,
+    });
+
     const api = new DefaultFunctionHttpApi(this, "Api", {
       apiName: "AwsCdkToolsApi",
       fn,
@@ -40,6 +50,11 @@ exports.handler = async (event) => {
     new StringParameter(this, "ApiUrl", {
       parameterName: "/cdk-tools/api/url",
       stringValue: api.url!,
+    });
+
+    new StringParameter(this, "FunctionUrl", {
+      parameterName: "/cdk-tools/function/url",
+      stringValue: fnUrl.url,
     });
 
     new StringParameter(this, "PingAlarmName", {
