@@ -8,9 +8,11 @@ import {
   Code,
   FunctionUrl,
   FunctionUrlAuthType,
+  HttpMethod,
   Runtime,
 } from "aws-cdk-lib/aws-lambda";
 import { StringParameter } from "aws-cdk-lib/aws-ssm";
+import { Cors } from "aws-cdk-lib/aws-apigateway";
 
 export class Api extends Construct {
   constructor(scope: Construct, id: string) {
@@ -35,6 +37,11 @@ exports.handler = async (event) => {
     const fnUrl = new FunctionUrl(this, "FnUrl", {
       function: fn,
       authType: FunctionUrlAuthType.NONE,
+      cors: {
+        allowedOrigins: Cors.ALL_ORIGINS,
+        allowedMethods: [HttpMethod.ALL],
+        allowedHeaders: Cors.DEFAULT_HEADERS,
+      },
     });
 
     const api = new DefaultFunctionHttpApi(this, "Api", {
