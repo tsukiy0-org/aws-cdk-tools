@@ -1,14 +1,11 @@
 {
-  "name": "config",
+  "name": "eslint-config-custom",
   "private": true,
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
-  "files": [
-    "eslint-preset.js"
-  ],
   "dependencies": {
-    "eslint": "^7",
+    "eslint": "^7.23.0",
     "eslint-config-next": "^12.0.8",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "latest",

@@ -3,6 +3,7 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "@next/next/no-html-link-for-pages": "off",
-    "prettier/prettier": "error",
+    "react/jsx-key": "off",
+    "prettier/prettier": ["error"],
   },
 };
