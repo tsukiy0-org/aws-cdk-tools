@@ -11,7 +11,7 @@
     "dist"
   ],
   "dependencies": {
-    "aws-sdk": "^2.1119.0"
+    "aws-sdk": "^2.1218.0"
   },
   "peerDependencies": {
     "@aws-cdk/aws-apigatewayv2-alpha": "2.42.0-alpha.0",
@@ -24,11 +24,11 @@
     "@aws-cdk/aws-apigatewayv2-alpha": "2.42.0-alpha.0",
     "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.42.0-alpha.0",
     "@aws-cdk/aws-batch-alpha": "2.42.0-alpha.0",
-    "@types/aws-lambda": "8.10.95",
-    "@types/node": "^17.0.25",
+    "@types/aws-lambda": "8.10.104",
+    "@types/node": "^18.7.18",
     "aws-cdk-lib": "2.42.0",
+    "constructs": "10.1.106",
     "eslint-config-custom": "*",
-    "constructs": "10.0.122",
     "tsconfig": "*",
     "typescript": "^4.8.3"
   },
