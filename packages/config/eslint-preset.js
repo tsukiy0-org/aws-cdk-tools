@@ -1,7 +1,8 @@
 module.exports = {
-  extends: ["turbo", "prettier"],
+  extends: ["next", "turbo", "prettier"],
   plugins: ["prettier"],
   rules: {
+    "@next/next/no-html-link-for-pages": "off",
     "prettier/prettier": "error",
   },
 };
