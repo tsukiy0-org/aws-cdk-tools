@@ -3,11 +3,11 @@
     "dockerComposeFile": "docker-compose.yml",
     "service": "main",
     "workspaceFolder": "/workspace",
-    "settings": {
-        "terminal.integrated.shell.*": "zsh"
-    },
     "extensions": [
         "dbaeumer.vscode-eslint",
-        "github.copilot",
-    ]
+        "github.copilot"
+    ],
+	"features": {
+		"docker-in-docker": "20.10"
+	}
 }

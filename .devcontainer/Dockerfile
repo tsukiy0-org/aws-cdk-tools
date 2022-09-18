@@ -13,7 +13,3 @@ RUN mkdir -p ${AWSCLI_DIR} \
     && unzip ${AWSCLI_DIR}/awscliv2.zip -d ${AWSCLI_DIR} \
     && sudo ${AWSCLI_DIR}/aws/install \
     && rm -rf ${AWSCLI_DIR}
-
-# shell
-RUN echo "bindkey -v" >> /root/.zshrc
-RUN echo "set-option -g default-shell $(which zsh)" >> /root/.tmux.conf
