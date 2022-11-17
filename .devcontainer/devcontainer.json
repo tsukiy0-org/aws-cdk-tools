@@ -9,5 +9,8 @@
     ],
 	"features": {
 		"docker-in-docker": "20.10"
-	}
+	},
+    "remoteUser": "node",
+    "postCreateCommand": "sudo chown node node_modules"
+
 }
