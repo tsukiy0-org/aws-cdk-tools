@@ -11,7 +11,7 @@
     "dist"
   ],
   "dependencies": {
-    "aws-sdk": "^2.1218.0"
+    "aws-sdk": "2.1256.0"
   },
   "peerDependencies": {
     "@aws-cdk/aws-apigatewayv2-alpha": "2.42.0-alpha.0",
@@ -21,20 +21,21 @@
     "constructs": "10.0.122"
   },
   "devDependencies": {
-    "@aws-cdk/aws-apigatewayv2-alpha": "2.42.0-alpha.0",
-    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.42.0-alpha.0",
-    "@aws-cdk/aws-batch-alpha": "2.42.0-alpha.0",
-    "@types/aws-lambda": "8.10.104",
-    "@types/node": "^18.7.18",
-    "aws-cdk-lib": "2.42.0",
-    "constructs": "10.1.106",
+    "@aws-cdk/aws-apigatewayv2-alpha": "2.50.0-alpha.0",
+    "@aws-cdk/aws-apigatewayv2-integrations-alpha": "2.50.0-alpha.0",
+    "@aws-cdk/aws-batch-alpha": "2.50.0-alpha.0",
+    "@types/aws-lambda": "8.10.108",
+    "@types/node": "18.11.9",
+    "aws-cdk-lib": "2.50.0",
+    "constructs": "10.1.162",
     "eslint-config-custom": "*",
     "tsconfig": "*",
-    "typescript": "^4.8.3"
+    "typescript": "4.9.3"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc --rootDir src --outDir dist",
-    "lint": "eslint ./src/**/*.ts"
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint ./src/**/*.ts --fix"
   }
 }
