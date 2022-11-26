@@ -33,6 +33,7 @@
     "typescript": "4.9.3"
   },
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "prebuild": "rm -rf dist",
     "build": "tsc --rootDir src --outDir dist",
     "lint": "eslint ./src/**/*.ts",
