@@ -16,15 +16,15 @@
   },
   "dependencies": {
     "@tsukiy0/aws-cdk-tools": "*",
-    "aws-cdk-lib": "2.50.0",
-    "constructs": "10.1.162"
+    "aws-cdk-lib": "2.51.1",
+    "constructs": "10.1.171"
   },
   "devDependencies": {
     "@types/jest": "29.2.3",
     "@types/node": "18.11.9",
     "@types/uuid": "8.3.4",
-    "aws-cdk": "2.50.0",
-    "aws-sdk": "2.1256.0",
+    "aws-cdk": "2.51.1",
+    "aws-sdk": "2.1261.0",
     "cross-fetch": "3.1.5",
     "eslint-config-custom": "*",
     "jest": "29.3.1",
