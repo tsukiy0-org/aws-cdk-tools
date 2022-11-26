@@ -13,6 +13,7 @@ export * from "./constructs/RetryQueueAlarm";
 export * from "./constructs/QueueFunction";
 export * from "./constructs/FargateBatchJob";
 export * from "./constructs/FargateComputeEnvironment";
+export * from "./constructs/DefaultBucket";
 export * from "./constructs/DefaultTable";
 export * from "./constructs/DefaultVpc";
 export * from "./constructs/PublicPgDb";
